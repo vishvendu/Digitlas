@@ -19,13 +19,18 @@ class MainActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        initToolbar()
+        setTitleToolbar("DIGITLAs")
 
         viewPager = findViewById(R.id.viewpager)
         tabLayout = findViewById(R.id.tabs)
 
-       // initToolbar()
-       // setTitleToolbar("MY ACTIVITY")
+        val pageAdapter = ViewPageAdapter(supportFragmentManager)
+        viewPager.adapter = pageAdapter
+        tabLayout.setupWithViewPager(viewPager)
+
     }
+
 
     override fun getContentView(): Int {
         return R.layout.activity_main
